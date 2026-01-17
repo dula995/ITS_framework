@@ -183,7 +183,7 @@ Suitable for:
 ## 👤 Author
 
 **MIS Master's Student**  
-**University**: Sri Lanka  
+**University**: TSI 
 **Year**: 2025
 
 ---
