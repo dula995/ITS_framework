@@ -1,193 +1,167 @@
-# 🚦 Framework for Integrating Intelligent Transportation Systems for Sri Lanka
-
-## Master's Thesis - Management of Information Systems
+# 🚦 ITS Dashboard - Sri Lanka (Streamlit)
+## Master's Thesis - Management Information Systems
 
 ---
 
 ## 📋 Overview
 
-This **Streamlit dashboard** provides a comprehensive Intelligent Transportation System (ITS) framework for Sri Lanka with:
+This Streamlit dashboard provides interactive visualization and analysis for the **Intelligent Transportation Systems (ITS) Framework for Sri Lanka**. It includes:
 
-- **2000+ synthetic records** based on realistic Sri Lankan patterns
-- **Machine Learning models** (Random Forest & Gradient Boosting)
-- **Hybrid prediction system** combining both algorithms
-- **Interactive visualizations** with filtering and sorting
-- **Decision-making framework** for transportation authorities
-- **Usability evaluation** with heuristic analysis
-
----
-
-## 🎯 Features
-
-### 1. Sri Lanka Native Dataset
-- **10 Major Cities**: Colombo, Kandy, Galle, Jaffna, Negombo, Kurunegala, Ratnapura, Anuradhapura, Trincomalee, Batticaloa
-- **6 Transport Modes**: SLTB Bus, Private Bus, Sri Lanka Railways, Three-Wheeler, Private Vehicle, Motorcycle
-- **Weather Patterns**: Clear, Cloudy, Light Rain, Heavy Rain, Thunderstorm
-- **Monsoon Seasons**: Southwest, Northeast, Inter-Monsoon, Dry
-- **Festivals**: Sinhala Tamil New Year, Vesak, Poson, Esala Perahera, Deepavali, Christmas
-
-### 2. Machine Learning Models
-| Model | Task | Metrics |
-|-------|------|---------|
-| Random Forest Regressor | Congestion prediction | R², RMSE, MAE |
-| Gradient Boosting Regressor | Congestion prediction | R², RMSE, MAE |
-| Random Forest Classifier | Level classification | Accuracy, F1 |
-| Gradient Boosting Classifier | Level classification | Accuracy, F1 |
-| Anomaly Detectors | Unusual congestion | Precision, Recall |
-
-### 3. Dashboard Pages
-1. **Executive Overview** - KPIs, geographic heatmap, trends
-2. **Traffic Analysis** - Filtering, congestion patterns, weekly heatmap
-3. **Multimodal Transport** - Passenger flow, Sankey diagram, mode analysis
-4. **Weather Impact** - Monsoon analysis, correlation matrix
-5. **ML Performance** - Actual vs predicted, feature importance, cross-validation
-6. **Hybrid Predictions** - Interactive prediction with recommendations
-7. **Route Optimization** - Weather-driven routing suggestions
-8. **Future Forecasting** - Scenario-based predictions
-9. **Data Explorer** - Filter, sort, download data
-10. **Decision Framework** - Action matrices for authorities
-11. **Data Interoperability** - API specs, standards compliance
-12. **Usability Evaluation** - Nielsen's heuristics, user test results
+- **Filtering**: Date, City, Mode, Weather, Time Period, Congestion Level
+- **Sorting**: Multiple columns with ascending/descending order
+- **User Input**: Traffic prediction simulator
+- **Data Export**: Download filtered data as CSV
+- **Interactive Visualizations**: Maps, charts, heatmaps
 
 ---
 
-## 🚀 Installation & Running
+## 🚀 How to Run
 
-### Prerequisites
-- Python 3.8+
-- pip package manager
+### Step 1: Install Python
+Make sure you have Python 3.8+ installed.
 
-### Steps
+### Step 2: Install Required Packages
 
 ```bash
-# 1. Clone/Extract the project
-cd its_thesis_final
-
-# 2. Install dependencies
 pip install -r requirements.txt
+```
 
-# 3. Run the dashboard
+Or install individually:
+```bash
+pip install streamlit pandas numpy plotly scikit-learn
+```
+
+### Step 3: Prepare Files
+
+Ensure these files are in the **SAME FOLDER**:
+```
+📁 streamlit_its_dashboard/
+   ├── app.py
+   ├── requirements.txt
+   ├── sri_lanka_its_synthetic_dataset_v2.csv
+   └── USABILITY_EVALUATION_REPORT.md
+```
+
+### Step 4: Run the Dashboard
+
+Open terminal/command prompt and navigate to the folder:
+
+```bash
+cd path/to/streamlit_its_dashboard
+```
+
+Then run:
+```bash
 streamlit run app.py
+```
 
-# 4. Open browser
-# http://localhost:8501
+### Step 5: View Dashboard
+
+The dashboard will automatically open in your browser at:
+```
+http://localhost:8501
 ```
 
 ---
 
-## 📁 Project Structure
+## 🎛️ Dashboard Features
 
+### Sidebar Filters
+| Filter | Description |
+|--------|-------------|
+| 📅 Date Range | Select start and end dates |
+| 🏙️ Origin City | Filter by departure city |
+| 🏙️ Destination City | Filter by arrival city |
+| 🚗 Transport Mode | Select Bus, Train, Car, etc. |
+| ⏰ Time Period | Morning, Afternoon, Evening, Night |
+| 🚦 Congestion Range | Slider 0-100 |
+| 🌧️ Weather | Clear, Light Rain, Heavy Rain |
+| ⚡ Rush Hour | All / Rush Hour Only / Non-Rush |
+| 📆 Day Type | All / Weekdays / Weekends |
+
+### Sorting Options
+- Sort by: Congestion, Delay, Travel Time, Distance, Passengers
+- Order: Ascending / Descending
+
+### Tabs
+1. **📈 Overview** - Key metrics and patterns
+2. **🗺️ Geographic Map** - Interactive Sri Lanka map
+3. **🚦 Congestion Analysis** - Detailed congestion insights
+4. **🌧️ Weather Impact** - Weather vs traffic analysis
+5. **🚂 Multimodal Analysis** - Transport mode comparison
+6. **📋 Data Explorer** - Raw data with custom columns
+
+### Prediction Simulator
+Enter parameters to predict congestion:
+- Origin & Destination City
+- Hour of Day
+- Transport Mode
+- Expected Rainfall
+- Day of Week
+
+---
+
+## 📊 Screenshots
+
+### Main Dashboard
 ```
-its_thesis_final/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── README.md              # This file
-└── USABILITY_REPORT.md    # Detailed usability analysis
+┌─────────────────────────────────────────────────────────────┐
+│  🚦 INTELLIGENT TRANSPORTATION SYSTEMS DASHBOARD            │
+│     Sri Lanka - Master's Thesis MIS                         │
+├─────────────────────────────────────────────────────────────┤
+│  📁 Total    │  🚦 Avg      │  ⏱️ Avg     │  👥 Total      │
+│  Records     │  Congestion  │  Delay      │  Passengers    │
+│  5,000       │  47.2        │  89.5 min   │  125,430       │
+├─────────────────────────────────────────────────────────────┤
+│  [📈 Overview] [🗺️ Map] [🚦 Congestion] [🌧️ Weather]      │
+│                                                             │
+│  ┌─────────────────┐  ┌─────────────────┐                  │
+│  │  Hourly Chart   │  │  Distribution   │                  │
+│  │                 │  │                 │                  │
+│  └─────────────────┘  └─────────────────┘                  │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📊 User Interactions
+## 📁 Files Included
 
-| Feature | Type | Description |
-|---------|------|-------------|
-| City Filter | Multi-select | Filter by Sri Lankan cities |
-| Transport Filter | Multi-select | Filter by transport modes |
-| Date/Time | Sliders | Select time periods |
-| Weather Filter | Multi-select | Filter by weather conditions |
-| Prediction Input | Sliders/Selects | Configure prediction parameters |
-| Sort | Dropdown + Radio | Sort data columns |
-| Download | Button | Export filtered data as CSV |
+| File | Description |
+|------|-------------|
+| `app.py` | Main Streamlit application |
+| `requirements.txt` | Python dependencies |
+| `sri_lanka_its_synthetic_dataset_v2.csv` | ITS dataset (5,000 records) |
+| `USABILITY_EVALUATION_REPORT.md` | Heuristic analysis document |
+| `README.md` | This file |
 
 ---
 
-## 🤖 Hybrid Prediction System
+## ⚠️ Troubleshooting
 
-The dashboard combines Random Forest and Gradient Boosting predictions:
-
-```
-Hybrid = (RF × 0.55) + (GB × 0.45)
+### Error: "ModuleNotFoundError"
+```bash
+pip install streamlit pandas numpy plotly
 ```
 
-**Features used:**
-- Hour, Day of Week, Month
-- Weekend/Rush Hour indicators
-- City, Transport Mode, Weather
-- Monsoon Season, Festival Period
-- Rainfall, Temperature, Humidity
-- Vehicle Count
+### Error: "FileNotFoundError"
+Make sure the CSV file is in the same folder as `app.py`
+
+### Dashboard not opening
+Try manually opening: `http://localhost:8501`
+
+### Port already in use
+```bash
+streamlit run app.py --server.port 8502
+```
 
 ---
 
-## 📈 Model Performance Summary
+## 📧 Contact
 
-| Metric | Random Forest | Gradient Boosting |
-|--------|--------------|-------------------|
-| R² Score | ~0.85+ | ~0.83+ |
-| RMSE | ~0.07 | ~0.08 |
-| Classification Accuracy | ~85%+ | ~83%+ |
-| Cross-Validation | Stable | Stable |
+For questions about this dashboard:
+- **Project:** Framework for Integrating ITS Concepts for Sri Lanka
+- **Program:** Master's in Management Information Systems
 
 ---
 
-## 🎨 Visualizations Included
-
-1. **Bar Charts**: Congestion by city, weather impact
-2. **Line Charts**: Hourly patterns, forecasts
-3. **Pie Charts**: Transport mode distribution
-4. **Heatmaps**: Weekly patterns, correlations
-5. **Scatter Plots**: Actual vs predicted, rainfall impact
-6. **Geographic Maps**: Hub activity heatmap
-7. **Sankey Diagrams**: Passenger flow
-8. **Box Plots**: Cross-validation scores
-
----
-
-## 📝 Usability Score
-
-**Overall: 8.4/10** (System Usability Scale: 78/100 - Good)
-
-| Heuristic | Score |
-|-----------|-------|
-| System Status Visibility | 9/10 |
-| Real World Match | 9/10 |
-| Consistency | 9/10 |
-| Error Prevention | 8/10 |
-| Recognition vs Recall | 9/10 |
-| Flexibility | 8/10 |
-
----
-
-## 🇱🇰 Sri Lanka Context
-
-This framework is specifically designed for Sri Lanka's transportation challenges:
-
-- **Monsoon patterns** affecting road conditions
-- **Festival traffic** during cultural celebrations
-- **Multi-modal integration** (SLTB, Railways, private transport)
-- **Urban congestion** especially in Colombo metropolitan area
-- **Weather-driven routing** for tropical conditions
-
----
-
-## 📚 Academic Use
-
-Suitable for:
-- Master's thesis in Management Information Systems
-- ITS research and development
-- Smart city planning projects
-- Transportation policy analysis
-
----
-
-## 👤 Author
-
-**MIS Master's Student**  
-**University**: TSI 
-**Year**: 2025
-
----
-
-## 📄 License
-
-Academic use only. For thesis and research purposes.
+**Version:** 1.0 | **Date:** January 2026
